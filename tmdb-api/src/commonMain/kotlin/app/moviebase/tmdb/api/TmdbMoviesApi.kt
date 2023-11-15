@@ -9,6 +9,7 @@ import app.moviebase.tmdb.core.parameterLanguage
 import app.moviebase.tmdb.core.parameterPage
 import io.ktor.client.*
 import io.ktor.client.call.body
+import io.ktor.client.request.HttpRequestBuilder
 import io.ktor.client.request.get
 
 class TmdbMoviesApi internal constructor(private val client: HttpClient) {
@@ -48,6 +49,20 @@ class TmdbMoviesApi internal constructor(private val client: HttpClient) {
         parameterPage(page)
         parameterLanguage(language)
     }.body()
+
+    suspend fun getRecommendations(
+        movieId: Int,
+        page: Int,
+        language: String? = null,
+    ): TmdbMoviePageResult = client.get {
+        endPointMovie(movieId, "recommendations")
+        parameterPage(page)
+        parameterLanguage(language)
+    }.body()
+
+    private fun HttpRequestBuilder.endPointMovie(movieId: Int, vararg paths: String) {
+        endPointV3("movie", movieId.toString(), *paths)
+    }
 
     private fun moviePath(movieId: Int, vararg paths: String) = arrayOf("movie", movieId.toString(), *paths)
 }
