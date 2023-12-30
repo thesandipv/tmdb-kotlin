@@ -3,9 +3,9 @@ import java.util.Locale
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.dokka)
+    alias(libs.plugins.jetbrains.kotlin.multiplatform)
+    alias(libs.plugins.jetbrains.kotlin.serialization)
+    alias(libs.plugins.jetbrains.dokka)
     alias(libs.plugins.ben.manes.versions)
     alias(libs.plugins.maven.publish)
 }

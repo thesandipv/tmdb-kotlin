@@ -1,9 +1,9 @@
 import com.diffplug.gradle.spotless.SpotlessExtension
 
 plugins {
-    alias(libs.plugins.kotlin.serialization) apply false
-    alias(libs.plugins.kotlin.multiplatform) apply false
-    alias(libs.plugins.dokka) apply false
+    alias(libs.plugins.jetbrains.kotlin.serialization) apply false
+    alias(libs.plugins.jetbrains.kotlin.multiplatform) apply false
+    alias(libs.plugins.jetbrains.dokka) apply false
     alias(libs.plugins.ben.manes.versions) apply false
     alias(libs.plugins.spotless) apply false
     alias(libs.plugins.maven.publish) apply false
