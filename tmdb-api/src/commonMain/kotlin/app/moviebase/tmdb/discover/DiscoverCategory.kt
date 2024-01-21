@@ -7,12 +7,12 @@ import app.moviebase.tmdb.model.TmdbWatchProviderId
 
 sealed interface DiscoverCategory {
 
-    object NowPlaying : DiscoverCategory
-    object Upcoming : DiscoverCategory
+    data object NowPlaying : DiscoverCategory
+    data object Upcoming : DiscoverCategory
     data class Popular(val mediaType: TmdbMediaType) : DiscoverCategory
     data class TopRated(val mediaType: TmdbMediaType) : DiscoverCategory
-    object AiringToday : DiscoverCategory
-    object OnTv : DiscoverCategory
+    data object AiringToday : DiscoverCategory
+    data object OnTv : DiscoverCategory
     data class OnDvd(val mediaType: TmdbMediaType) : DiscoverCategory
 
     data class Network(val network: Int) : DiscoverCategory {
@@ -24,8 +24,11 @@ sealed interface DiscoverCategory {
         }
     }
 
-    data class OnStreaming(val mediaType: TmdbMediaType, val watchRegion: String, val watchProviders: TmdbDiscoverFilter<Int>) :
-        DiscoverCategory {
+    data class OnStreaming(
+        val mediaType: TmdbMediaType,
+        val watchRegion: String,
+        val watchProviders: TmdbDiscoverFilter<Int>
+    ) : DiscoverCategory {
         companion object {
             fun Netflix(mediaType: TmdbMediaType, watchRegion: String) = OnStreaming(
                 mediaType,
