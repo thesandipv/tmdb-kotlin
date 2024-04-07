@@ -2,6 +2,7 @@ package app.moviebase.tmdb.model
 
 import app.moviebase.tmdb.core.LocalDateSerializer
 import kotlinx.datetime.LocalDate
+import kotlinx.serialization.Polymorphic
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -39,7 +40,7 @@ enum class TmdbGender(val value: Int) {
 @Serializable
 data class TmdbCredits(
     @SerialName("cast") val cast: List<TmdbCast>,
-    @SerialName("crew") val crew: List<TmdbCrew>
+    @SerialName("crew") val crew: List<TmdbCrew>,
 ) {
 
     /**
@@ -55,7 +56,8 @@ data class TmdbCredits(
      */
     fun getSortedCrew(): List<TmdbCrew> {
         val jobsSet = TmdbCrewJobType.importantJobs.toSet()
-        val orderByJob = TmdbCrewJobType.importantJobs.withIndex().associate { it.value to it.index }
+        val orderByJob =
+            TmdbCrewJobType.importantJobs.withIndex().associate { it.value to it.index }
         return crew.filter { jobsSet.contains(it.job) }.sortedBy { orderByJob[it.job] }
     }
 }
@@ -68,27 +70,52 @@ interface TmdbAnyPerson : TmdbAnyItem, TmdbProfileItem {
 @Serializable
 data class TmdbAggregateCredits(
     @SerialName("cast") val cast: List<TmdbAggregateCast>,
-    @SerialName("crew") val crew: List<TmdbAggregateCrew>
+    @SerialName("crew") val crew: List<TmdbAggregateCrew>,
 )
 
 @Serializable
+@SerialName("person")
+data class TmdbPerson(
+    @SerialName("adult") val adult: Boolean,
+    @SerialName("gender") val gender: TmdbGender,
+    @SerialName("id") override val id: Int,
+    @SerialName("known_for_department") val knownForDepartment: TmdbDepartment? = null,
+    @SerialName("name") override val name: String,
+    @SerialName("profile_path") override val profilePath: String? = null,
+    @SerialName("popularity") override val popularity: Float
+) : TmdbAnyPerson, TmdbSearchableListItem
+
+@Serializable
+data class TmdbPersonPageResult(
+    @SerialName("page") override val page: Int,
+    @SerialName("results") override val results: List<TmdbPerson> = emptyList(),
+    @SerialName("total_results") override val totalResults: Int,
+    @SerialName("total_pages") override val totalPages: Int
+) : TmdbPageResult<TmdbPerson>
+
+@Serializable
 data class TmdbPersonDetail(
+    @SerialName("adult") val adult: Boolean,
     @SerialName("also_known_as") val alsoKnownAs: List<String>,
-    @SerialName("known_for_department") val knownForDepartment: String? = null,
-    @SerialName("biography") val biography: String,
-    @SerialName("birthday") val birthday: String? = null,
-    @SerialName("deathday") val deathday: String? = null,
+    @SerialName("biography") val biography: String? = null,
+    @SerialName("birthday") val birthday: LocalDate? = null,
+    @SerialName("deathday") val deathday: LocalDate? = null,
+    @SerialName("gender") val gender: TmdbGender? = null,
     @SerialName("homepage") val homepage: String? = null,
     @SerialName("id") override val id: Int,
     @SerialName("imdb_id") val imdbId: String? = null,
+    @SerialName("known_for_department") val knownForDepartment: TmdbDepartment? = null,
     @SerialName("name") override val name: String,
-    @SerialName("profile_path") override val profilePath: String? = null,
-    @SerialName("popularity") override val popularity: Float,
     @SerialName("place_of_birth") val placeOfBirth: String? = null,
+    @SerialName("popularity") override val popularity: Float? = null,
+    @SerialName("profile_path") override val profilePath: String? = null,
     @SerialName("external_ids") val externalIds: TmdbExternalIds? = null,
+    @SerialName("images") val images: TmdbPersonImages? = null,
     @SerialName("tagged_images") val taggedImages: TmdbImagePageResult? = null,
+    @SerialName("combined_credits") val combinedCredits: TmdbPersonCombinedCredits? = null,
     @SerialName("movie_credits") val movieCredits: TmdbPersonMovieCredits? = null,
-    @SerialName("tv_credits") val tvCredits: TmdbPersonShowCredits? = null
+    @SerialName("tv_credits") val tvCredits: TmdbPersonShowCredits? = null,
+    @SerialName("translations") val translations: TmdbPersonTranslations? = null,
 ) : TmdbAnyPerson
 
 @Serializable
@@ -96,14 +123,14 @@ data class TmdbCrew(
     @SerialName("adult") val adult: Boolean = false,
     @SerialName("gender") val gender: TmdbGender = TmdbGender.UNKNOWN,
     @SerialName("id") override val id: Int,
-    @SerialName("known_for_department") val knownForDepartment: String? = null,
+    @SerialName("known_for_department") val knownForDepartment: TmdbDepartment? = null,
     @SerialName("name") override val name: String,
     @SerialName("original_name") val originalName: String? = null,
     @SerialName("popularity") override val popularity: Float? = null,
     @SerialName("profile_path") override val profilePath: String? = null,
     @SerialName("credit_id") val creditId: String,
-    @SerialName("department") val department: String,
-    @SerialName("job") val job: String
+    @SerialName("department") val department: TmdbDepartment? = null,
+    @SerialName("job") val job: String,
 ) : TmdbAnyPerson
 
 @Serializable
@@ -111,7 +138,7 @@ data class TmdbCast(
     @SerialName("adult") val adult: Boolean = false,
     @SerialName("gender") val gender: TmdbGender,
     @SerialName("id") override val id: Int,
-    @SerialName("known_for_department") val knownForDepartment: String? = null,
+    @SerialName("known_for_department") val knownForDepartment: TmdbDepartment? = null,
     @SerialName("name") override val name: String,
     @SerialName("original_name") val originalName: String? = null,
     @SerialName("popularity") override val popularity: Float? = null,
@@ -119,7 +146,7 @@ data class TmdbCast(
     @SerialName("cast_id") val castId: Int? = null,
     @SerialName("character") val character: String,
     @SerialName("credit_id") val creditId: String,
-    @SerialName("order") val order: Int
+    @SerialName("order") val order: Int,
 ) : TmdbAnyPerson
 
 @Serializable
@@ -127,14 +154,14 @@ data class TmdbAggregateCast(
     @SerialName("adult") val adult: Boolean = false,
     @SerialName("gender") val gender: TmdbGender,
     @SerialName("id") val id: Int,
-    @SerialName("known_for_department") val knownForDepartment: String? = null,
+    @SerialName("known_for_department") val knownForDepartment: TmdbDepartment? = null,
     @SerialName("name") val name: String,
     @SerialName("original_name") val originalName: String? = null,
     @SerialName("popularity") val popularity: Float? = null,
     @SerialName("profile_path") val profilePath: String? = null,
     @SerialName("roles") val roles: List<TmdbRole>,
     @SerialName("total_episode_count") val totalEpisodeCount: Int,
-    @SerialName("order") val order: Int
+    @SerialName("order") val order: Int,
 )
 
 @Serializable
@@ -142,33 +169,52 @@ data class TmdbAggregateCrew(
     @SerialName("adult") val adult: Boolean = false,
     @SerialName("gender") val gender: TmdbGender,
     @SerialName("id") override val id: Int,
-    @SerialName("known_for_department") val knownForDepartment: String? = null,
+    @SerialName("known_for_department") val knownForDepartment: TmdbDepartment? = null,
     @SerialName("name") override val name: String,
     @SerialName("original_name") val originalName: String? = null,
     @SerialName("popularity") override val popularity: Float? = null,
     @SerialName("profile_path") override val profilePath: String? = null,
     @SerialName("jobs") val jobs: List<TmdbJob>,
-    @SerialName("department") val department: String,
-    @SerialName("total_episode_count") val totalEpisodeCount: Int
+    @SerialName("department") val department: TmdbDepartment? = null,
+    @SerialName("total_episode_count") val totalEpisodeCount: Int,
 ) : TmdbAnyPerson
 
 @Serializable
 data class TmdbRole(
     @SerialName("credit_id") val creditId: String,
     @SerialName("character") val character: String,
-    @SerialName("episode_count") val episodeCount: Int
+    @SerialName("episode_count") val episodeCount: Int,
 )
 
 @Serializable
 data class TmdbJob(
     @SerialName("credit_id") val creditId: String,
     @SerialName("job") val job: String,
-    @SerialName("episode_count") val episodeCount: Int
+    @SerialName("episode_count") val episodeCount: Int,
 )
 
 @Serializable
 data class TmdbTaggedImage(
-    val media: TmdbTaggedMedia
+    @SerialName("media") val media: TmdbTaggedMedia,
+)
+
+@Serializable
+data class TmdbPersonTranslations(
+    @SerialName("translations") val translations: List<TmdbPersonTranslation>,
+)
+
+@Serializable
+data class TmdbPersonTranslation(
+    @SerialName("iso_3166_1") val iso3166: String,
+    @SerialName("iso_639_1") val iso639: String,
+    @SerialName("name") val name: String,
+    @SerialName("english_name") val englishName: String,
+    @SerialName("data") val data: TmdbPersonTranslationData
+)
+
+@Serializable
+data class TmdbPersonTranslationData(
+    @SerialName("biography")  val biography: String
 )
 
 @Serializable
@@ -185,139 +231,146 @@ data class TmdbImagePageResult(
     @SerialName("page") override val page: Int,
     @SerialName("results") override val results: List<TmdbTaggedImage> = emptyList(),
     @SerialName("total_results") override val totalResults: Int,
-    @SerialName("total_pages") override val totalPages: Int
+    @SerialName("total_pages") override val totalPages: Int,
 ) : TmdbPageResult<TmdbTaggedImage>
 
 @Serializable
 data class TmdbTaggedMedia(
-    @SerialName("backdrop_path") val backdropPath: String?
+    @SerialName("backdrop_path") val backdropPath: String? = null,
 )
 
 @Serializable
-data class TmdbPersonMovieCredits(
-    @SerialName("cast") val cast: List<TmdbPersonCredit.Movie.Cast>,
-    @SerialName("crew") val crew: List<TmdbPersonCredit.Movie.Crew>
+data class TmdbPersonImages(
+    @SerialName("profiles") val profiles: List<TmdbFileImage> = emptyList(),
 )
+
+typealias TmdbPersonShowCredits = TmdbPersonCredits<TmdbPersonCredit.Show>
+typealias TmdbPersonMovieCredits = TmdbPersonCredits<TmdbPersonCredit.Movie>
+typealias TmdbPersonCombinedCredits = TmdbPersonCredits<TmdbPersonCredit>
 
 @Serializable
-data class TmdbPersonShowCredits(
-    @SerialName("cast") val cast: List<TmdbPersonCredit.Show.Cast>,
-    @SerialName("crew") val crew: List<TmdbPersonCredit.Show.Crew>
+data class TmdbPersonCredits<T : TmdbPersonCredit>(
+    @SerialName("cast") val cast: List<T>,
+    @SerialName("crew") val crew: List<T>,
 )
 
+@Polymorphic
+@Serializable
 sealed interface TmdbPersonCredit : TmdbAnyItem, TmdbBackdropItem, TmdbPosterItem {
 
     val voteAverage: Float
     val voteCount: Int
     val overview: String
-    val genresIds: List<Int>
-    val popularity: Float
-    val originalLanguage: String
+    val genreIds: List<Int>
+    val popularity: Float?
+    val originalLanguage: String?
+    val adult: Boolean
 
-    sealed interface Movie : TmdbPersonCredit {
+    val character: String?
+    val creditId: String?
+    val order: Int?
+    val department: TmdbDepartment?
+    val job: String?
 
-        val adult: Boolean
-        val releaseDate: LocalDate?
-        val originalTitle: String?
-        val title: String?
-        val video: Boolean
+    @Serializable
+    @SerialName("movie")
+    data class Movie(
+        @SerialName("poster_path") override val posterPath: String?,
+        @SerialName("adult") override val adult: Boolean = false,
+        @SerialName("overview") override val overview: String,
+        @SerialName("release_date")
+        @Serializable(LocalDateSerializer::class)
+        val releaseDate: LocalDate? = null,
+        @SerialName("genre_ids") override val genreIds: List<Int>,
+        @SerialName("id") override val id: Int,
+        @SerialName("original_title") val originalTitle: String? = null,
+        @SerialName("original_language") override val originalLanguage: String,
+        @SerialName("title") val title: String? = null,
+        @SerialName("backdrop_path") override val backdropPath: String?,
+        @SerialName("popularity") override val popularity: Float,
+        @SerialName("video") val video: Boolean = false,
+        @SerialName("vote_average") override val voteAverage: Float,
+        @SerialName("vote_count") override val voteCount: Int,
+        @SerialName("character") override val character: String? = null,
+        @SerialName("credit_id") override val creditId: String? = null,
+        @SerialName("order") override val order: Int? = null,
+        @SerialName("department") override val department: TmdbDepartment? = null,
+        @SerialName("job") override val job: String? = null,
+    ) : TmdbPersonCredit
 
-        @Serializable
-        data class Cast(
-            @SerialName("poster_path") override val posterPath: String?,
-            @SerialName("adult") override val adult: Boolean = false,
-            @SerialName("overview") override val overview: String,
-            @SerialName("release_date")
-            @Serializable(LocalDateSerializer::class)
-            override val releaseDate: LocalDate? = null,
-            @SerialName("genre_ids") override val genresIds: List<Int>,
-            @SerialName("id") override val id: Int,
-            @SerialName("original_title") override val originalTitle: String? = null,
-            @SerialName("original_language") override val originalLanguage: String,
-            @SerialName("title") override val title: String? = null,
-            @SerialName("backdrop_path") override val backdropPath: String?,
-            @SerialName("popularity") override val popularity: Float,
-            @SerialName("video") override val video: Boolean = false,
-            @SerialName("vote_average") override val voteAverage: Float,
-            @SerialName("vote_count") override val voteCount: Int,
-            @SerialName("character") val character: String,
-            @SerialName("credit_id") val creditId: String,
-            @SerialName("order") val order: Int? = null
-        ) : Movie
+    @Serializable
+    @SerialName("tv")
+    data class Show(
+        @SerialName("poster_path") override val posterPath: String?  = null,
+        @SerialName("popularity") override val popularity: Float? = null,
+        @SerialName("id") override val id: Int,
+        @SerialName("adult") override val adult: Boolean = false,
+        @SerialName("backdrop_path") override val backdropPath: String? = null,
+        @SerialName("vote_average") override val voteAverage: Float,
+        @SerialName("overview") override val overview: String,
+        @SerialName("first_air_date")
+        @Serializable(LocalDateSerializer::class)
+        val firstAirDate: LocalDate? = null,
+        @SerialName("origin_country") val originCountry: List<String> = emptyList(),
+        @SerialName("genre_ids") override val genreIds: List<Int> = emptyList(),
+        @SerialName("original_language") override val originalLanguage: String,
+        @SerialName("vote_count") override val voteCount: Int,
+        @SerialName("name") val name: String? = null,
+        @SerialName("original_name") val originalName: String? = null,
+        @SerialName("character") override val character: String? = null,
+        @SerialName("credit_id") override val creditId: String? = null,
+        @SerialName("order") override val order: Int? = null,
+        @SerialName("department") override val department: TmdbDepartment? = null,
+        @SerialName("job") override val job: String? = null,
+    ) : TmdbPersonCredit
+}
 
-        @Serializable
-        data class Crew(
-            @SerialName("poster_path") override val posterPath: String?,
-            @SerialName("adult") override val adult: Boolean = false,
-            @SerialName("overview") override val overview: String,
-            @SerialName("release_date")
-            @Serializable(LocalDateSerializer::class)
-            override val releaseDate: LocalDate? = null,
-            @SerialName("genre_ids") override val genresIds: List<Int>,
-            @SerialName("id") override val id: Int,
-            @SerialName("original_title") override val originalTitle: String? = null,
-            @SerialName("original_language") override val originalLanguage: String,
-            @SerialName("title") override val title: String? = null,
-            @SerialName("backdrop_path") override val backdropPath: String?,
-            @SerialName("popularity") override val popularity: Float,
-            @SerialName("video") override val video: Boolean = false,
-            @SerialName("vote_count") override val voteCount: Int,
-            @SerialName("vote_average") override val voteAverage: Float,
-            @SerialName("credit_id") val creditId: String,
-            @SerialName("department") val department: String,
-            @SerialName("job") val job: String
-        ) : Movie
-    }
+@Serializable
+enum class TmdbDepartment(val value: String) {
 
-    sealed interface Show : TmdbPersonCredit {
+    @SerialName("Acting")
+    ACTING("Acting"),
 
-        val firstAirDate: LocalDate?
-        val originCountry: List<String>
-        val name: String
-        val originalName: String
+    @SerialName("Writing")
+    WRITING("Writing"),
 
-        @Serializable
-        data class Cast(
-            @SerialName("poster_path") override val posterPath: String?,
-            @SerialName("popularity") override val popularity: Float,
-            @SerialName("id") override val id: Int,
-            @SerialName("backdrop_path") override val backdropPath: String?,
-            @SerialName("vote_average") override val voteAverage: Float,
-            @SerialName("overview") override val overview: String,
-            @SerialName("first_air_date")
-            @Serializable(LocalDateSerializer::class)
-            override val firstAirDate: LocalDate? = null,
-            @SerialName("origin_country") override val originCountry: List<String>,
-            @SerialName("genre_ids") override val genresIds: List<Int>,
-            @SerialName("original_language") override val originalLanguage: String,
-            @SerialName("vote_count") override val voteCount: Int,
-            @SerialName("name") override val name: String,
-            @SerialName("original_name") override val originalName: String,
-            @SerialName("character") val character: String,
-            @SerialName("credit_id") val creditId: String,
-            @SerialName("order") val order: Int? = null
-        ) : Show
+    @SerialName("Sound")
+    SOUND("Sound"),
 
-        @Serializable
-        data class Crew(
-            @SerialName("poster_path") override val posterPath: String?,
-            @SerialName("popularity") override val popularity: Float,
-            @SerialName("id") override val id: Int,
-            @SerialName("backdrop_path") override val backdropPath: String?,
-            @SerialName("vote_average") override val voteAverage: Float,
-            @SerialName("overview") override val overview: String,
-            @SerialName("first_air_date")
-            @Serializable(LocalDateSerializer::class)
-            override val firstAirDate: LocalDate? = null,
-            @SerialName("origin_country") override val originCountry: List<String>,
-            @SerialName("genre_ids") override val genresIds: List<Int>,
-            @SerialName("original_language") override val originalLanguage: String,
-            @SerialName("vote_count") override val voteCount: Int,
-            @SerialName("name") override val name: String,
-            @SerialName("original_name") override val originalName: String,
-            @SerialName("credit_id") val creditId: String,
-            @SerialName("department") val department: String,
-            @SerialName("job") val job: String
-        ) : Show
+    @SerialName("Production")
+    PRODUCTION("Production"),
+
+    @SerialName("Art")
+    ART("Art"),
+
+    @SerialName("Directing")
+    DIRECTING("Directing"),
+
+    @SerialName("Creator")
+    CREATOR("Creator"),
+
+    @SerialName("Costume & Make-Up")
+    COSTUME_AND_MAKEUP("Costume & Make-Up"),
+
+    @SerialName("Camera")
+    CAMERA("Camera"),
+
+    @SerialName("Visual Effects")
+    VISUAL_EFFECTS("Visual Effects"),
+
+    @SerialName("Lighting")
+    LIGHTING("Lighting"),
+
+    @SerialName("Editing")
+    EDITING("Editing"),
+
+    @SerialName("Actors")
+    ACTORS("Actors"),
+
+    @SerialName("Crew")
+    CREW("Crew");
+
+    companion object {
+        fun of(value: String?) = entries.find { it.value == value }
     }
 }

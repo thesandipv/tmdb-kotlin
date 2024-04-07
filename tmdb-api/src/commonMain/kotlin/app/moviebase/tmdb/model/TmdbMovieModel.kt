@@ -4,9 +4,8 @@ package app.moviebase.tmdb.model
 
 import app.moviebase.tmdb.image.TmdbImage
 import app.moviebase.tmdb.core.LocalDateSerializer
-import app.moviebase.tmdb.core.LocalDateTimeSerializer
+import kotlinx.datetime.Instant
 import kotlinx.datetime.LocalDate
-import kotlinx.datetime.LocalDateTime
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -31,7 +30,7 @@ enum class TmdbReleaseType(val value: Int) {
     TV(6);
 
     companion object {
-        fun find(value: Int?) = values().find { it.value == value }
+        fun find(value: Int?) = entries.find { it.value == value }
     }
 }
 
@@ -56,9 +55,39 @@ enum class TmdbMovieStatus(val value: String) {
     CANCELED("Canceled");
 
     companion object {
-        fun find(value: String?) = values().find { it.value == value }
+        fun find(value: String?) = entries.find { it.value == value }
     }
 }
+
+@Serializable
+@SerialName("movie")
+data class TmdbMovie(
+    @SerialName("poster_path") override val posterPath: String?,
+    @SerialName("adult") val adult: Boolean = false,
+    @SerialName("overview") override val overview: String,
+    @SerialName("release_date")
+    @Serializable(LocalDateSerializer::class)
+    val releaseDate: LocalDate? = null,
+    @SerialName("genre_ids") override val genresIds: List<Int>,
+    @SerialName("id") override val id: Int,
+    @SerialName("original_title") val originalTitle: String,
+    @SerialName("original_language") override val originalLanguage: String,
+    @SerialName("title") val title: String,
+    @SerialName("backdrop_path") override val backdropPath: String?,
+    @SerialName("popularity") override val popularity: Float,
+    @SerialName("vote_count") override val voteCount: Int,
+    @SerialName("video") val video: Boolean,
+    @SerialName("vote_average") override val voteAverage: Float
+) : TmdbMediaListItem, TmdbSearchableListItem
+
+@Serializable
+data class TmdbMoviePageResult(
+    @SerialName("page") override val page: Int,
+    @SerialName("results") override val results: List<TmdbMovie> = emptyList(),
+    @SerialName("total_results") override val totalResults: Int,
+    @SerialName("total_pages") override val totalPages: Int
+) : TmdbPageResult<TmdbMovie>
+
 
 @Serializable
 data class TmdbMovieDetail(
@@ -120,11 +149,9 @@ data class TmdbReleaseDates(
 @Serializable
 data class TmdbReleaseDate(
     @SerialName("iso_639_1") val iso639: String? = null,
-    @SerialName("release_date")
-    @Serializable(LocalDateTimeSerializer::class)
-    val releaseDate: LocalDateTime?,
-    val certification: String? = null,
-    val type: TmdbReleaseType
+    @SerialName("release_date") val releaseDate: Instant?,
+    @SerialName("certification") val certification: String? = null,
+    @SerialName("type") val type: TmdbReleaseType
 )
 
 @Serializable
