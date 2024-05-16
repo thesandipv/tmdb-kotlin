@@ -62,7 +62,7 @@ kotlin {
                 implementation(libs.kotlinx.coroutines.core)
                 implementation(libs.kotlinx.coroutines.test)
                 implementation(libs.kotlin.junit5)
-                implementation(libs.junit)
+                implementation(libs.test.junit)
                 implementation(libs.junit.jupiter.api)
                 runtimeOnly(libs.junit.jupiter.engine)
                 implementation(libs.truth)
