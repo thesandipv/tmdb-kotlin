@@ -1,11 +1,11 @@
 package app.moviebase.tmdb.api
 
-import app.moviebase.tmdb.model.*
 import app.moviebase.tmdb.core.endPointV3
 import app.moviebase.tmdb.core.parameterAppendResponses
 import app.moviebase.tmdb.core.parameterIncludeImageLanguage
 import app.moviebase.tmdb.core.parameterLanguage
 import app.moviebase.tmdb.core.parameterPage
+import app.moviebase.tmdb.model.*
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.request.*
@@ -76,4 +76,13 @@ class TmdbShowApi internal constructor(private val client: HttpClient) {
     private fun HttpRequestBuilder.endPointShow(showId: Int, vararg paths: String) {
         endPointV3("tv", showId.toString(), *paths)
     }
+
+    suspend fun credits(
+        showId: Int,
+        language: String? = null,
+    ): TmdbCredits = client.get {
+        endPointShow(showId, "credits")
+        parameterLanguage(language)
+    }.body()
+
 }

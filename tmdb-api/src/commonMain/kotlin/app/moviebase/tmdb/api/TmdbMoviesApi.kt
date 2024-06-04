@@ -1,13 +1,20 @@
 package app.moviebase.tmdb.api
 
-import app.moviebase.tmdb.model.*
 import app.moviebase.tmdb.core.endPointV3
 import app.moviebase.tmdb.core.getByPaths
 import app.moviebase.tmdb.core.parameterAppendResponses
 import app.moviebase.tmdb.core.parameterIncludeImageLanguage
 import app.moviebase.tmdb.core.parameterLanguage
 import app.moviebase.tmdb.core.parameterPage
-import io.ktor.client.*
+import app.moviebase.tmdb.model.AppendResponse
+import app.moviebase.tmdb.model.TmdbCredits
+import app.moviebase.tmdb.model.TmdbExternalIds
+import app.moviebase.tmdb.model.TmdbImages
+import app.moviebase.tmdb.model.TmdbMovieDetail
+import app.moviebase.tmdb.model.TmdbMoviePageResult
+import app.moviebase.tmdb.model.TmdbTranslations
+import app.moviebase.tmdb.model.TmdbWatchProviderResult
+import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.HttpRequestBuilder
 import io.ktor.client.request.get
@@ -65,4 +72,13 @@ class TmdbMoviesApi internal constructor(private val client: HttpClient) {
     }
 
     private fun moviePath(movieId: Int, vararg paths: String) = arrayOf("movie", movieId.toString(), *paths)
+
+    suspend fun credits(
+        movieId: Int,
+        language: String? = null,
+    ): TmdbCredits = client.get {
+        endPointMovie(movieId, "credits")
+        parameterLanguage(language)
+    }.body()
+
 }
