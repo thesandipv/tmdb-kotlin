@@ -1,24 +1,24 @@
 [versions]
-kotlin = "1.9.22"
+kotlin = "2.0.0"
 spotless = "6.23.3"
 ben-manes-versions = "0.50.0"
 dokka = "1.9.10"
-kotlinx-datetime = "0.5.0"
-kotlinx-serialization = "1.6.2"
-coroutines = "1.8.0"
-ktor = "2.3.8"
+kotlinx-datetime = "0.6.0"
+kotlinx-serialization = "1.6.3"
+coroutines = "1.8.1"
+ktor = "2.3.11"
 ktlint = "1.1.1"
-junit-jupiter = "5.10.1"
-truth = "1.1.5"
+junit-jupiter = "5.10.2"
+truth = "1.4.2"
 junit = "4.13.2"
 maven-publish = "0.25.3"
 
 [plugins]
-kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+jetbrains-kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+jetbrains-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ben-manes-versions = { id = "com.github.ben-manes.versions", version.ref = "ben-manes-versions" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
-dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+jetbrains-dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven-publish" }
 
 [libraries]
@@ -40,7 +40,7 @@ ktor-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
 kotlin-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin" }
 kotlin-test-common = { module = "org.jetbrains.kotlin:kotlin-test-common", version.ref = "kotlin" }
 kotlin-test-annotations = { module = "org.jetbrains.kotlin:kotlin-test-annotations-common", version.ref = "kotlin" }
-junit = { module = "junit:junit", version.ref = "junit" }
+test-junit = { module = "junit:junit", version.ref = "junit" }
 
 junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit-jupiter" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit-jupiter" }
