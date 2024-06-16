@@ -69,8 +69,8 @@ kotlin {
             }
         }
 
-        val jsMain by getting {
-        }
+        val jsMain by getting
+        val jsTest by getting
 
         val iosX64Main by getting
         val iosArm64Main by getting
