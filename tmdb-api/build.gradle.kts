@@ -1,6 +1,9 @@
+@file:OptIn(ExperimentalKotlinGradlePluginApi::class)
+
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import java.util.Locale
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.jetbrains.kotlin.multiplatform)
@@ -11,7 +14,15 @@ plugins {
 }
 
 kotlin {
-    jvm()
+    compilerOptions {
+        freeCompilerArgs.add("-Xjvm-default=all")
+    }
+
+    jvm {
+        compilerOptions {
+            jvmTarget = JvmTarget.JVM_17
+        }
+    }
     js(IR) {
         browser()
         nodejs()
@@ -96,11 +107,6 @@ kotlin {
             iosSimulatorArm64Test.dependsOn(this)
         }
     }
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_17.toString()
-    kotlinOptions.freeCompilerArgs += "-Xjvm-default=all"
 }
 
 tasks.withType<Test>().configureEach {
