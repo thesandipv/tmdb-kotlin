@@ -27,7 +27,7 @@ class TmdbMoviesApi internal constructor(private val client: HttpClient) {
     suspend fun getDetails(
         movieId: Int,
         language: String? = null,
-        appendResponses: Iterable<AppendResponse>? = null
+        appendResponses: Iterable<AppendResponse>? = null,
     ): TmdbMovieDetail = client.getByPaths(*moviePath(movieId)) {
         parameterLanguage(language)
         parameterAppendResponses(appendResponses)
@@ -36,7 +36,7 @@ class TmdbMoviesApi internal constructor(private val client: HttpClient) {
     suspend fun getImages(
         movieId: Int,
         language: String? = null,
-        includeImageLanguage: String? = null
+        includeImageLanguage: String? = null,
     ): TmdbImages = client.getByPaths(*moviePath(movieId, "images")) {
         parameterLanguage(language)
         parameterIncludeImageLanguage(includeImageLanguage)
@@ -53,6 +53,15 @@ class TmdbMoviesApi internal constructor(private val client: HttpClient) {
         language: String? = null,
     ): TmdbMoviePageResult = client.get {
         endPointV3("movie", "popular")
+        parameterPage(page)
+        parameterLanguage(language)
+    }.body()
+
+    suspend fun nowPlaying(
+        page: Int,
+        language: String? = null,
+    ): TmdbMoviePageResult = client.get {
+        endPointV3("movie", "now_playing")
         parameterPage(page)
         parameterLanguage(language)
     }.body()
@@ -80,5 +89,4 @@ class TmdbMoviesApi internal constructor(private val client: HttpClient) {
         endPointMovie(movieId, "credits")
         parameterLanguage(language)
     }.body()
-
 }
