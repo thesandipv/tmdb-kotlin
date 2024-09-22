@@ -80,6 +80,14 @@ class TmdbAccountIntegrationTest {
             assertThat(pageResult.page).isEqualTo(1)
             assertThat(pageResult.results).isNotEmpty()
         }
+
+        @Test
+        fun `it can logout session`() = runTest {
+            requireNotNull(storage.sessionId)
+
+            val result = tmdb3.authentication.deleteSession(storage.sessionId!!)
+            assertThat(result.success).isTrue()
+        }
     }
 
     @Nested
