@@ -1,9 +1,11 @@
 package app.moviebase.tmdb
 
 import app.moviebase.tmdb.core.TmdbDsl
-import io.ktor.client.*
-import io.ktor.client.engine.*
-import io.ktor.client.plugins.logging.*
+import io.ktor.client.HttpClient
+import io.ktor.client.HttpClientConfig
+import io.ktor.client.engine.HttpClientEngineConfig
+import io.ktor.client.engine.HttpClientEngineFactory
+import io.ktor.client.plugins.logging.Logging
 
 @TmdbDsl
 class TmdbClientConfig {
@@ -41,7 +43,7 @@ class TmdbClientConfig {
      */
     fun <T : HttpClientEngineConfig> httpClient(
         engineFactory: HttpClientEngineFactory<T>,
-        block: HttpClientConfig<T>.() -> Unit = {}
+        block: HttpClientConfig<T>.() -> Unit = {},
     ) {
         httpClientBuilder = {
             HttpClient(engineFactory, block)
@@ -62,19 +64,19 @@ class TmdbAuthCredentials {
     // used in version 4
     var authenticationToken: String? = null
 
-    internal var sessionIdProvider: (() -> String?)? = null
-    internal var guestSessionIdProvider: (() -> String?)? = null
-    internal var accessTokenProvider: (() -> String?)? = null
+    internal var sessionIdProvider: (suspend () -> String?)? = null
+    internal var guestSessionIdProvider: (suspend () -> String?)? = null
+    internal var accessTokenProvider: (suspend () -> String?)? = null
 
-    fun loadSessionId(provider: () -> String?) {
+    fun loadSessionId(provider: suspend () -> String?) {
         sessionIdProvider = provider
     }
 
-    fun loadGuestSessionId(provider: () -> String?) {
+    fun loadGuestSessionId(provider: suspend () -> String?) {
         guestSessionIdProvider = provider
     }
 
-    fun loadAccessToken(provider: () -> String?) {
+    fun loadAccessToken(provider: suspend () -> String?) {
         accessTokenProvider = provider
     }
 }

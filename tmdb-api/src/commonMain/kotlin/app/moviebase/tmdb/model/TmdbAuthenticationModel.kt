@@ -2,7 +2,6 @@ package app.moviebase.tmdb.model
 
 import app.moviebase.tmdb.core.TmdbInstantSerializer
 import kotlinx.datetime.Instant
-import kotlinx.datetime.LocalDateTime
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -34,4 +33,9 @@ data class TmdbGuestSession(
     @Serializable(TmdbInstantSerializer::class)
     val expiredAt: Instant?,
     @SerialName("guest_session_id") val guestSessionId: String
+)
+
+@Serializable
+data class TmdbDeleteSession(
+    @SerialName("success") val success: Boolean,
 )

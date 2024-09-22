@@ -1,12 +1,15 @@
 package app.moviebase.tmdb.api
 
+import app.moviebase.tmdb.TmdbUrlParameter
+import app.moviebase.tmdb.core.endPointV3
+import app.moviebase.tmdb.model.TmdbDeleteSession
 import app.moviebase.tmdb.model.TmdbGuestSession
 import app.moviebase.tmdb.model.TmdbRequestToken
 import app.moviebase.tmdb.model.TmdbSession
-import app.moviebase.tmdb.core.endPointV3
 import app.moviebase.tmdb.url.TmdbAuthenticationUrlBuilder
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
+import io.ktor.client.request.delete
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 
@@ -16,7 +19,11 @@ class TmdbAuthenticationApi internal constructor(private val client: HttpClient)
         endPointV3("authentication/token/new")
     }.body()
 
-    suspend fun validateToken(userName: String, password: String, requestToken: String): TmdbRequestToken = client.get {
+    suspend fun validateToken(
+        userName: String,
+        password: String,
+        requestToken: String,
+    ): TmdbRequestToken = client.get {
         endPointV3("authentication/token/new")
 
         parameter("request_token", requestToken)
@@ -27,6 +34,11 @@ class TmdbAuthenticationApi internal constructor(private val client: HttpClient)
     suspend fun createSession(requestToken: String): TmdbSession = client.get {
         endPointV3("authentication/session/new")
         parameter("request_token", requestToken)
+    }.body()
+
+    suspend fun deleteSession(sessionId: String): TmdbDeleteSession = client.delete {
+        endPointV3("authentication/session")
+        parameter(TmdbUrlParameter.SESSION_ID, sessionId)
     }.body()
 
     suspend fun createGuestSession(): TmdbGuestSession = client.get {
