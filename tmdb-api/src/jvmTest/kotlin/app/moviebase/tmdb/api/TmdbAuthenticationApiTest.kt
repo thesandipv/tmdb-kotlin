@@ -2,8 +2,8 @@ package app.moviebase.tmdb.api
 
 import app.moviebase.tmdb.core.mockHttpClient
 import com.google.common.truth.Truth.assertThat
+import kotlin.time.Instant
 import kotlinx.coroutines.test.runTest
-import kotlinx.datetime.Instant
 import org.junit.jupiter.api.Test
 
 class TmdbAuthenticationApiTest {
