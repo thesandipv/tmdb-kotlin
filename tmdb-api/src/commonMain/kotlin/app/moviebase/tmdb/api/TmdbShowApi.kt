@@ -9,7 +9,6 @@ import app.moviebase.tmdb.core.parameterPage
 import app.moviebase.tmdb.model.AppendResponse
 import app.moviebase.tmdb.model.TmdbAccountStates
 import app.moviebase.tmdb.model.TmdbAggregateCredits
-import app.moviebase.tmdb.model.TmdbAlternativeTitle
 import app.moviebase.tmdb.model.TmdbAlternativeTitles
 import app.moviebase.tmdb.model.TmdbContentRating
 import app.moviebase.tmdb.model.TmdbCredits
@@ -249,13 +248,4 @@ class TmdbShowApi internal constructor(private val client: HttpClient) {
     private fun HttpRequestBuilder.endPointShow(showId: Int, vararg paths: String) {
         endPointV3("tv", showId.toString(), *paths)
     }
-
-    suspend fun credits(
-        showId: Int,
-        language: String? = null,
-    ): TmdbCredits = client.get {
-        endPointShow(showId, "credits")
-        parameterLanguage(language)
-    }.body()
-
 }
