@@ -2461,5 +2461,1120 @@
         ]
       }
     }
+  },
+  "translations": {
+    "translations": [
+      {
+        "iso_3166_1": "FR",
+        "iso_639_1": "fr",
+        "name": "Français",
+        "english_name": "French",
+        "data": {
+          "name": "",
+          "overview": "Inspiré par les aventures d'Arsène Lupin, le gentleman cambrioleur Assane Diop décide de venger son père d'une terrible injustice.",
+          "homepage": "",
+          "tagline": "Vous m'avez vu, mais vous ne m'avez pas regardé."
+        }
+      },
+      {
+        "iso_3166_1": "US",
+        "iso_639_1": "en",
+        "name": "English",
+        "english_name": "English",
+        "data": {
+          "name": "",
+          "overview": "Inspired by the adventures of Arsène Lupin, gentleman thief Assane Diop sets out to avenge his father for an injustice inflicted by a wealthy family.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "CZ",
+        "iso_639_1": "cs",
+        "name": "Český",
+        "english_name": "Czech",
+        "data": {
+          "name": "",
+          "overview": "Zloděj gentleman Assane Diop se ve šlépějích Arsèna Lupina vydává pomstít příkoří, které jeho otci způsobila jedna bohatá rodina.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "KR",
+        "iso_639_1": "ko",
+        "name": "한국어/조선말",
+        "english_name": "Korean",
+        "data": {
+          "name": "뤼팽",
+          "overview": "한 남자가 뼈아픈 배신을 겪은 가족을 위해 복수의 칼을 품는다. 그리고 새로운 전설이 시작된다. 오마르 시 주연으로, 괴도 아르센 뤼팽을 현대적으로 재해석한 작품.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "IT",
+        "iso_639_1": "it",
+        "name": "Italiano",
+        "english_name": "Italian",
+        "data": {
+          "name": "Lupin",
+          "overview": "Ispirandosi alle avventure di Arsenio Lupin, il ladro gentiluomo Assane Diop decide di vendicare il padre per un'ingiustizia subita per colpa di una ricca famiglia.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "BR",
+        "iso_639_1": "pt",
+        "name": "Português",
+        "english_name": "Portuguese",
+        "data": {
+          "name": "",
+          "overview": "Inspirado pelas aventuras de Arsène Lupin, o ladrão gentil Assane Diop quer se vingar de uma família rica por uma injustiça cometida contra o pai dele.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "DE",
+        "iso_639_1": "de",
+        "name": "Deutsch",
+        "english_name": "German",
+        "data": {
+          "name": "",
+          "overview": "Inspiriert von den Abenteuern Arsène Lupins beschließt der Meisterdieb Assane Diop, seinen Vater zu rächen, dem von einer reichen Familie großes Unrecht zugefügt wurde.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "PT",
+        "iso_639_1": "pt",
+        "name": "Português",
+        "english_name": "Portuguese",
+        "data": {
+          "name": "",
+          "overview": "Inspirado pelas aventuras de Arsène Lupin, o ladrão de casaca Assane Diop está decidido a vingar o pai por uma injustiça acometida por uma família abastada.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "TR",
+        "iso_639_1": "tr",
+        "name": "Türkçe",
+        "english_name": "Turkish",
+        "data": {
+          "name": "",
+          "overview": "Arsen Lüpen'in maceralarından esinlenen kibar hırsız Assane Diop, varlıklı bir aile yüzünden haksızlığa uğrayan babasının intikamını almak için kolları sıvar.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "HU",
+        "iso_639_1": "hu",
+        "name": "Magyar",
+        "english_name": "Hungarian",
+        "data": {
+          "name": "",
+          "overview": "Assane Diop, az úri tolvaj Arsène Lupin kalandjaiból merít ihletet, amikor bosszút áll az igazságtalanságokért, amelyeket egy gazdag család követett el az apja ellen.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "DK",
+        "iso_639_1": "da",
+        "name": "Dansk",
+        "english_name": "Danish",
+        "data": {
+          "name": "",
+          "overview": "Inspireret af Arsène Lupins eventyr drager gentlemantyven Assane Diop ud for at hævne sin far for en uretfærdighed, der blev begået af en velhavende familie.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "RU",
+        "iso_639_1": "ru",
+        "name": "Pусский",
+        "english_name": "Russian",
+        "data": {
+          "name": "Люпен",
+          "overview": "Ассан Диоп ещё в детстве прочитал книгу о приключениях грабителя Арсена Люпена и теперь собирается обчистить Лувр. Он сделает это красиво - во время аукциона, где выставляется дорогое колье. Но дело не только в деньгах: это месть богатому семейству, из-за которого 25 лет назад отца Диопа незаслуженно осудили за преступление.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "NL",
+        "iso_639_1": "nl",
+        "name": "Nederlands",
+        "english_name": "Dutch",
+        "data": {
+          "name": "",
+          "overview": "Toen Assane Diop nog maar een tiener was werd zijn vader beschuldigd van een misdaad die hij niet gepleegd had. Zijn vader stierf en vijfentwintig jaar later is het tijd om wraak te nemen. Nu is Lupin een charmante inbreker die zijn talenten graag inzet om gestolen sieraden van vrouwen terug te vinden. Voor deze heldendaden zet hij veel op het spel. De crimineel sluipt namelijk het Louvre binnen voor een groot misdrijf. Of hij de grote klus geklaard krijgt is echter nog maar de vraag.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "ES",
+        "iso_639_1": "es",
+        "name": "Español",
+        "english_name": "Spanish",
+        "data": {
+          "name": "",
+          "overview": "Inspirado por las aventuras de Arsène Lupin, el ladrón de guante blanco Assane Diop se propone vengar la injusticia sufrida por su padre a manos de una familia rica.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "PL",
+        "iso_639_1": "pl",
+        "name": "Polski",
+        "english_name": "Polish",
+        "data": {
+          "name": "",
+          "overview": "Zainspirowany przygodami Arsène’a Lupina złodziej gentleman Assane Diop obmyśla zemstę na zamożnej rodzinie, która wyrządziła niesprawiedliwość jego ojcu.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "CN",
+        "iso_639_1": "zh",
+        "name": "普通话",
+        "english_name": "Mandarin",
+        "data": {
+          "name": "",
+          "overview": "在阿桑·迪奥普十几岁的时候，他的父亲因含冤入狱而离开人世，此后他的生活发生了翻天覆地的变化。25年后，阿桑受到“怪盗绅士亚森·罗宾”的启发，决心为父报仇。",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "TW",
+        "iso_639_1": "zh",
+        "name": "普通话",
+        "english_name": "Mandarin",
+        "data": {
+          "name": "亞森·羅蘋",
+          "overview": "本劇靈感來自亞森·羅蘋的精采冒險，怪盜紳士亞森·迪歐籌劃為父報仇大計，要向一個富有的家族討回公道。",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "UA",
+        "iso_639_1": "uk",
+        "name": "Український",
+        "english_name": "Ukrainian",
+        "data": {
+          "name": "Люпен",
+          "overview": "Натхненний пригодами Арсена Люпена, благородний грабіжник Ассан Діоп вирішує помститися за свого батька, життя якого безкарно зруйнувала одна заможна родина.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "CA",
+        "iso_639_1": "fr",
+        "name": "Français",
+        "english_name": "French",
+        "data": {
+          "name": "",
+          "overview": "Inspiré par les aventures d'Arsène Lupin, le gentleman cambrioleur Assane Diop entreprend de venger son père pour une injustice infligée par une famille bien nantie.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "IL",
+        "iso_639_1": "he",
+        "name": "עִבְרִית",
+        "english_name": "Hebrew",
+        "data": {
+          "name": "לופן",
+          "overview": "הגנב הג'נטלמני אסאן דיופ שואב השראה מהרפתקאותיו של ארסן לופן, ויוצא להתנקם במשפחה העשירה שאחראית למות אביו.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "VN",
+        "iso_639_1": "vi",
+        "name": "Tiếng Việt",
+        "english_name": "Vietnamese",
+        "data": {
+          "name": "",
+          "overview": "Lấy cảm hứng từ những cuộc phiêu lưu của Arsène Lupin, tên trộm lịch lãm Assane Diop tiến hành trả thù một gia đình giàu có để đòi lại công lý cho cha.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "MX",
+        "iso_639_1": "es",
+        "name": "Español",
+        "english_name": "Spanish",
+        "data": {
+          "name": "",
+          "overview": "Inspirado en las aventuras de Arsène Lupin, el caballeroso ladrón Assane Diop se propone vengar a su padre de las injusticias sufridas a manos de una familia adinerada.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "TH",
+        "iso_639_1": "th",
+        "name": "ภาษาไทย",
+        "english_name": "Thai",
+        "data": {
+          "name": "จอมโจรลูแปง",
+          "overview": "อัสซาน จ็อปผู้ได้รับแรงบันดาลใจจากวีรกรรมของสุภาพบุรุษจอมโจรอาร์แซน ลูแปง ตั้งใจแก้แค้นให้พ่อที่ได้รับความอยุติธรรมจากครอบครัวที่มั่งคั่ง",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "GR",
+        "iso_639_1": "el",
+        "name": "ελληνικά",
+        "english_name": "Greek",
+        "data": {
+          "name": "Λουπέν",
+          "overview": "Από τις περιπέτειες του Αρσέν Λουπέν, ο ευγενής λωποδύτης Ασάν Ντιόπ θέλει να πάρει εκδίκηση για τον πατέρα του για μια αδικία που προκάλεσε μια πλούσια οικογένεια.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "JP",
+        "iso_639_1": "ja",
+        "name": "日本語",
+        "english_name": "Japanese",
+        "data": {
+          "name": "Lupin/ルパン",
+          "overview": "父を陥れた裕福な一家への報復に乗り出したアサン・ディオプ。怪盗紳士アルセーヌ・ルパンのごとく、あくまでもスマートに計画を実行していく。",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "SA",
+        "iso_639_1": "ar",
+        "name": "العربية",
+        "english_name": "Arabic",
+        "data": {
+          "name": "لوبين",
+          "overview": "متأثّرًا بأسلوب مغامرات \"أرسين لوبين\" ومهارته، ينطلق اللصّ النبيل \"أسان ديوب\" في مسعاه للانتقام من عائلة ثريّة ألحقت بوالده الضرر والظلم.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "LT",
+        "iso_639_1": "lt",
+        "name": "Lietuvių",
+        "english_name": "Lithuanian",
+        "data": {
+          "name": "Lupenas",
+          "overview": "Įkvėptas Arsenijaus Lupeno nuotykių, ponas vagis Asanas Diopas siekia atkeršyti turtuolių šeimai už neteisingumą prieš jo tėvą.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "BG",
+        "iso_639_1": "bg",
+        "name": "български език",
+        "english_name": "Bulgarian",
+        "data": {
+          "name": "Люпен",
+          "overview": "Животът на Асан Диоп се преобръща, когато баща му умира, след като е обвинен в престъпление, което не е извършил. 25 години по-късно Асан ще използва „Арсен Люпен“ като свое вдъхновение, за да отмъсти за баща си.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "SK",
+        "iso_639_1": "sk",
+        "name": "Slovenčina",
+        "english_name": "Slovak",
+        "data": {
+          "name": "",
+          "overview": "Zlodej gentleman Assane Diop, inšpirovaný dobrodružstvami Arsèna Lupina, sa vydáva pomstiť svojho otca za nespravodlivosti, ktoré mu spôsobila bohatá rodina.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "HR",
+        "iso_639_1": "hr",
+        "name": "Hrvatski",
+        "english_name": "Croatian",
+        "data": {
+          "name": "",
+          "overview": "Nadahnut pustolovinama Arsènea Lupina, lopov džentlmen Assane Diop kreće u osvetnički pohod zbog nepravde koju je njegovu ocu nanijela imućna obitelj.",
+          "homepage": "",
+          "tagline": "Profesionalni lopov kreće u osvetnički pohod kako bi osvetio oca"
+        }
+      },
+      {
+        "iso_3166_1": "SE",
+        "iso_639_1": "sv",
+        "name": "svenska",
+        "english_name": "Swedish",
+        "data": {
+          "name": "",
+          "overview": "Med inspiration från gentlemannatjuven Arsène Lupin börjar Assane Diop planera sin hämnd på den rika familjen som begick en stor oförrätt mot hans pappa.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "ID",
+        "iso_639_1": "id",
+        "name": "Bahasa indonesia",
+        "english_name": "Indonesian",
+        "data": {
+          "name": "",
+          "overview": "Terinspirasi petualangan Arsène Lupin, Assane Diop, sang pencuri karismatik, bertekad membalaskan dendam ayahnya atas ketidakadilan yang ditimbulkan sebuah keluarga kaya.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "RS",
+        "iso_639_1": "sr",
+        "name": "Srpski",
+        "english_name": "Serbian",
+        "data": {
+          "name": "Лупин",
+          "overview": "Инспирисан авантурама Арсена Лупена, лопов господин Асан Диоп креће да освети свог оца за неправду коју је нанела богата породица.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "GE",
+        "iso_639_1": "ka",
+        "name": "ქართული",
+        "english_name": "Georgian",
+        "data": {
+          "name": "ლუპენი",
+          "overview": "ქურდი, ბავშვობაში ნაჩუქარი წიგნის გმირის, ვირტუოზი ჯენტლმენი ქურდის, არსენ ლუპენის სახელით ბრუნდება, რომელიც ახლა წიგნს შთაგონების წყაროდ იყენებს, და მამის სიკვდილის გამო შურისძიებას ცდილობს.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "IR",
+        "iso_639_1": "fa",
+        "name": "فارسی",
+        "english_name": "Persian",
+        "data": {
+          "name": "لویپن",
+          "overview": "با الهام از ماجراهای آرسن لوپین، دزد لوطی آسان دیوپ تصمیم می‌گیرد تا انتقام پدرش را به‌خاطر بی‌عدالتی که توسط یک خانواده ثروتمند تحمیل شده است، بگیرد.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "HK",
+        "iso_639_1": "zh",
+        "name": "普通话",
+        "english_name": "Mandarin",
+        "data": {
+          "name": "怪盜羅蘋",
+          "overview": "本劇靈感來自亞森·羅蘋的精採冒險，怪盜紳士亞森·迪歐籌劃為父報仇大計，要向一個富有的家族討回公道。",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "SI",
+        "iso_639_1": "sl",
+        "name": "Slovenščina",
+        "english_name": "Slovenian",
+        "data": {
+          "name": "Lupin",
+          "overview": "Dogajanje je postavljeno v sodobni Pariz, kjer spremljamo gentlemanskega lopova Assana Diopa v iskanju pravice, skozi retrospektive pa postopoma odkrivamo njegovo zgodovino, razmerja in predvsem motivacijo za dejanja v sedanjosti. Še v najstniških letih so njegovega očeta Babakarja Diopa obsodili kraje dragocene ogrlice, zaradi česar si je v zaporu vzel življenje; v spomin nanj je mlademu Assanu ostala zgolj Leblancova kriminalka, iz katere je kmalu začel črpati navdih za svoj 'poklic'.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "MY",
+        "iso_639_1": "ms",
+        "name": "Bahasa melayu",
+        "english_name": "Malay",
+        "data": {
+          "name": "",
+          "overview": "Diinspirasikan oleh pengembaraan Arsène Lupin, pencuri berbudi bahasa Assane Diop mahu menuntut bela terhadap keluarga kaya kerana bersikap tidak adil terhadap ayahnya.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "IN",
+        "iso_639_1": "hi",
+        "name": "हिन्दी",
+        "english_name": "Hindi",
+        "data": {
+          "name": "लूपां",
+          "overview": "आर्सेन ल्यूपिन के कारनामों से प्रेरित, जेंटलमैन चोर असान डिऑप अपने पिता पर एक अमीर परिवार द्वारा किए गए अन्याय का बदला लेने निकल पड़ता है.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "RO",
+        "iso_639_1": "ro",
+        "name": "Română",
+        "english_name": "Romanian",
+        "data": {
+          "name": "",
+          "overview": "Inspirat de aventurile lui Arsène Lupin, hoțul gentilom Assane Diop vrea să-și răzbune tatăl, victima unei nedreptăți provocate de o familie înstărită.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "SG",
+        "iso_639_1": "zh",
+        "name": "普通话",
+        "english_name": "Mandarin",
+        "data": {
+          "name": "绅士怪盗",
+          "overview": "本剧以亚森·罗宾的冒险经历为灵感，讲述了绅士怪盗阿桑·迪奥普因父亲的冤屈而向一个富有家族展开复仇的故事。",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "AE",
+        "iso_639_1": "ar",
+        "name": "العربية",
+        "english_name": "Arabic",
+        "data": {
+          "name": "لوبين",
+          "overview": "متأثّرًا بأسلوب مغامرات \"أرسين لوبين\" ومهارته، ينطلق اللصّ النبيل \"أسان ديوب\" في مسعاه للانتقام من عائلة ثريّة ألحقت بوالده الضرر والظلم.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "FI",
+        "iso_639_1": "fi",
+        "name": "suomi",
+        "english_name": "Finnish",
+        "data": {
+          "name": "",
+          "overview": "Herrasmiesvaras Arsène Lupinin seikkailujen innoittamana Assane Diop päättää kostaa isänsä kokeman vääryyden sen aiheuttaneelle varakkaalle suvulle.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "BE",
+        "iso_639_1": "nl",
+        "name": "Nederlands",
+        "english_name": "Dutch",
+        "data": {
+          "name": "",
+          "overview": "",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "ES",
+        "iso_639_1": "ca",
+        "name": "Català",
+        "english_name": "Catalan",
+        "data": {
+          "name": "",
+          "overview": "Inspirat per les aventures d'Arsène Lupin, el lladre de guant blanc Assane Diop es proposa venjar la injustícia patida pel seu pare a les mans d'una família rica.",
+          "homepage": "",
+          "tagline": ""
+        }
+      }
+    ]
+  },
+  "keywords": {
+    "results": [
+      {
+        "name": "paris, france",
+        "id": 90
+      },
+      {
+        "name": "based on novel or book",
+        "id": 818
+      },
+      {
+        "name": "investigation",
+        "id": 5340
+      },
+      {
+        "name": "police",
+        "id": 6149
+      },
+      {
+        "name": "thief",
+        "id": 9727
+      },
+      {
+        "name": "revenge",
+        "id": 9748
+      },
+      {
+        "name": "heist",
+        "id": 10051
+      },
+      {
+        "name": "criminal",
+        "id": 15009
+      },
+      {
+        "name": "disguise",
+        "id": 18118
+      },
+      {
+        "name": "dramedy",
+        "id": 203322
+      },
+      {
+        "name": "arsene lupin",
+        "id": 289360
+      },
+      {
+        "name": "thriller",
+        "id": 316362
+      },
+      {
+        "name": "exciting",
+        "id": 319837
+      },
+      {
+        "name": "action",
+        "id": 322496
+      }
+    ]
+  },
+  "recommendations": {
+    "page": 1,
+    "results": [
+      {
+        "adult": false,
+        "backdrop_path": "/rwxxDbG9Kijki7CkmB4k64MSbte.jpg",
+        "id": 790,
+        "name": "Agatha Christie's Poirot",
+        "original_name": "Agatha Christie's Poirot",
+        "overview": "From England to Egypt, accompanied by his elegant and trustworthy sidekicks, the intelligent yet eccentrically-refined Belgian detective Hercule Poirot pits his wits against a collection of first class deceptions.",
+        "poster_path": "/6f4IVfbn8knb7RjdZlGLuW5guDc.jpg",
+        "media_type": "tv",
+        "original_language": "en",
+        "genre_ids": [
+          80,
+          18,
+          9648
+        ],
+        "popularity": 102.5228,
+        "first_air_date": "1989-01-08",
+        "vote_average": 8.2,
+        "vote_count": 535,
+        "origin_country": [
+          "GB"
+        ]
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/cQNhn9WK7jtNWqPVdCP5StLzkyY.jpg",
+        "id": 197242,
+        "name": "Three Pines",
+        "original_name": "Three Pines",
+        "overview": "Chief Inspector Armand Gamache and his team investigate a series of perplexing murders, in the seemingly idyllic village of Three Pines and uncover the buried secrets of its eccentric residents. In the process, Gamache is forced to confront buried secrets of his own. Based on the novels by Louise Penny.",
+        "poster_path": "/r5lbLfjfFZYhr2TfuvKpf7b0HpQ.jpg",
+        "media_type": "tv",
+        "original_language": "en",
+        "genre_ids": [
+          80,
+          18,
+          9648
+        ],
+        "popularity": 8.4465,
+        "first_air_date": "2022-12-01",
+        "vote_average": 6.439,
+        "vote_count": 82,
+        "origin_country": [
+          "CA"
+        ]
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/tSFndbpoEctuYviiSRJHjyC31V9.jpg",
+        "id": 254071,
+        "name": "Steal",
+        "original_name": "Steal",
+        "overview": "A typical day at Lochmill Capital is upended when armed thieves burst in and force Zara and her best friend Luke to execute their demands. In the aftermath, conflicted detective Rhys races against time to find out who stole £4 billion pounds of people's pensions and why.",
+        "poster_path": "/6KmlaPhsohh3Ki9XJUq0jiUYbf3.jpg",
+        "media_type": "tv",
+        "original_language": "en",
+        "genre_ids": [
+          18,
+          80,
+          9648
+        ],
+        "popularity": 15.4609,
+        "first_air_date": "2026-01-21",
+        "vote_average": 7.417,
+        "vote_count": 114,
+        "origin_country": [
+          "GB"
+        ]
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/eKwFd5jJfBZ0el9kpLp0VVvCfy6.jpg",
+        "id": 209479,
+        "name": "Monsieur Spade",
+        "original_name": "Monsieur Spade",
+        "overview": "Detective Sam Spade is pulled out of his tranquil retirement in France to investigate a series of brutal murders.",
+        "poster_path": "/5B0fvoxRPT7mhZMgMSAM27j6QZb.jpg",
+        "media_type": "tv",
+        "original_language": "en",
+        "genre_ids": [
+          18,
+          9648,
+          80
+        ],
+        "popularity": 10.9145,
+        "first_air_date": "2024-01-14",
+        "vote_average": 6.2,
+        "vote_count": 62,
+        "origin_country": [
+          "US"
+        ]
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/1RejXo8s6ot7ZbrgR8J16DVaaTi.jpg",
+        "id": 108181,
+        "name": "Imperfect Women",
+        "original_name": "Imperfect Women",
+        "overview": "After a murder shatters the lives of three best friends, their decades-long bond is tested when an investigation reveals betrayals and shocking truths.",
+        "poster_path": "/wW7rimhnokiQ8V6ha6VKIwHg8IV.jpg",
+        "media_type": "tv",
+        "original_language": "en",
+        "genre_ids": [
+          18,
+          9648,
+          80
+        ],
+        "popularity": 17.748,
+        "first_air_date": "2026-03-17",
+        "vote_average": 5.8,
+        "vote_count": 25,
+        "origin_country": [
+          "US"
+        ]
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/x9yqsGeZjqmlCh5qVfhmFPp2kcH.jpg",
+        "id": 72748,
+        "name": "Strike",
+        "original_name": "Strike",
+        "overview": "A war veteran turned private detective operates out of a tiny office in London’s Denmark Street. Although wounded both physically and psychologically, his unique insight and background as a military police investigator prove crucial in solving complex crimes that have baffled the police. Based on the bestselling novels written by J.K. Rowling under the pseudonym Robert Galbraith.",
+        "poster_path": "/oPTJfwuMLz6Lr3suGK4584MAJAC.jpg",
+        "media_type": "tv",
+        "original_language": "en",
+        "genre_ids": [
+          80,
+          18,
+          9648
+        ],
+        "popularity": 18.7123,
+        "first_air_date": "2017-08-27",
+        "vote_average": 7.2,
+        "vote_count": 239,
+        "origin_country": [
+          "GB"
+        ]
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/2vAOdruqvx9GojXxKi3xVsZZvKU.jpg",
+        "id": 61859,
+        "name": "The Night Manager",
+        "original_name": "The Night Manager",
+        "overview": "Former British soldier Jonathan Pine navigates the shadowy recesses of Whitehall and Washington where an unholy alliance operates between the intelligence community and the secret arms trade. To infiltrate the inner circle of lethal arms dealer Richard Onslow Roper, Pine must himself become a criminal.",
+        "poster_path": "/1MccRnw41qQjREuZkovqP2UX1i3.jpg",
+        "media_type": "tv",
+        "original_language": "en",
+        "genre_ids": [
+          18,
+          9648,
+          80
+        ],
+        "popularity": 25.4425,
+        "first_air_date": "2016-02-21",
+        "vote_average": 7.7,
+        "vote_count": 1258,
+        "origin_country": [
+          "GB"
+        ]
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/eAo5vQ5dxRaL6G8NFOGyuZCYCcL.jpg",
+        "id": 64581,
+        "name": "Maigret",
+        "original_name": "Maigret",
+        "overview": "The pragmatic, reserved and refined Maigret investigates murders in his singular unhurried manner and inevitably discovers the truth.",
+        "poster_path": "/kQQARcBsgzd5d2s7ZPA5NjHF33S.jpg",
+        "media_type": "tv",
+        "original_language": "fr",
+        "genre_ids": [
+          80,
+          9648,
+          18
+        ],
+        "popularity": 20.6514,
+        "first_air_date": "1991-12-01",
+        "vote_average": 7.6,
+        "vote_count": 22,
+        "origin_country": [
+          "BE",
+          "FR"
+        ]
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/3gRDZotvt7FqNyTU4bU9S2OCEPi.jpg",
+        "id": 66599,
+        "name": "Private Eyes",
+        "original_name": "Private Eyes",
+        "overview": "Ex-pro hockey player Matt Shade irrevocably changes his life when he teams up with fierce P.I. Angie Everett to form an unlikely investigative powerhouse.",
+        "poster_path": "/yPt9IuY2D8g6Lpwh8O8wCDixzt9.jpg",
+        "media_type": "tv",
+        "original_language": "en",
+        "genre_ids": [
+          80,
+          18,
+          35
+        ],
+        "popularity": 27.0934,
+        "first_air_date": "2016-05-26",
+        "vote_average": 7.3,
+        "vote_count": 143,
+        "origin_country": [
+          "CA"
+        ]
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/1lBEfsnzUkxtxzvFwimENpM6bEP.jpg",
+        "id": 6127,
+        "name": "Agatha Christie's Marple",
+        "original_name": "Agatha Christie's Marple",
+        "overview": "The adventures of Miss Jane Marple, an elderly spinster living in the quiet little village of St Mary Mead. During her many visits to friends and relatives in other villages, Miss Marple often stumbles upon mysterious murders which she helps solve. Although the police are sometimes reluctant to accept Miss Marple's help, her reputation and unparalleled powers of observation eventually win them over.",
+        "poster_path": "/nVswrZQpqQND9TgwgbWgz18KgAo.jpg",
+        "media_type": "tv",
+        "original_language": "en",
+        "genre_ids": [
+          18,
+          80,
+          9648
+        ],
+        "popularity": 48.0841,
+        "first_air_date": "2004-12-12",
+        "vote_average": 7.8,
+        "vote_count": 138,
+        "origin_country": [
+          "GB"
+        ]
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/wofevfOdZrHPqFnhZTkHHV25IOO.jpg",
+        "id": 587,
+        "name": "Barnaby Jones",
+        "original_name": "Barnaby Jones",
+        "overview": "Barnaby Jones is a television detective series starring Buddy Ebsen and Lee Meriwether as father- and daughter-in-law who run a private detective firm in Los Angeles. The show ran on CBS from January 28, 1973 to April 3, 1980, beginning as a midseason replacement. William Conrad guest starred as Frank Cannon of Cannon on the first episode of Barnaby Jones, \"Requiem for a Son\" and the two series had a two-part crossover episode in 1975, \"The Deadly Conspiracy\".",
+        "poster_path": "/wn1kkCGHJcUQ7C8umfQH9LL2zXR.jpg",
+        "media_type": "tv",
+        "original_language": "en",
+        "genre_ids": [
+          80,
+          18,
+          9648
+        ],
+        "popularity": 21.9514,
+        "first_air_date": "1973-01-28",
+        "vote_average": 6.9,
+        "vote_count": 28,
+        "origin_country": [
+          "US"
+        ]
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/AdfZ3W15jYvZLwVUcVGqOd1g0CE.jpg",
+        "id": 137127,
+        "name": "Dalgliesh",
+        "original_name": "Dalgliesh",
+        "overview": "A recent widower and acclaimed poet, enigmatic Inspector Adam Dalgliesh employs his exceptional empathy and insight to plumb the darker depths of the human psyche while investigating complex crimes in 1970s England.",
+        "poster_path": "/8pqCanIwJFehhZdP00gXE0qc9xc.jpg",
+        "media_type": "tv",
+        "original_language": "en",
+        "genre_ids": [
+          80,
+          18,
+          9648
+        ],
+        "popularity": 13.1776,
+        "first_air_date": "2021-11-04",
+        "vote_average": 6.683,
+        "vote_count": 60,
+        "origin_country": [
+          "GB"
+        ]
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/wixjwQv8aPfIwbc7euj0fPPsMjT.jpg",
+        "id": 3216,
+        "name": "Baretta",
+        "original_name": "Baretta",
+        "overview": "Baretta is an American detective television series which ran on ABC from 1975 to 1978. The show was a milder version of a successful 1973–74 ABC series, Toma, starring Tony Musante as chameleon-like, real-life New Jersey police officer David Toma. While popular, Toma received intense criticism at the time for its realistic and frequent depiction of police and criminal violence. When Musante left the series after a single season, the concept was retooled as Baretta, with Robert Blake in the title role.",
+        "poster_path": "/xayGSRT2GbcFTwNIqt6l355v29F.jpg",
+        "media_type": "tv",
+        "original_language": "en",
+        "genre_ids": [
+          80,
+          18,
+          9648
+        ],
+        "popularity": 20.1378,
+        "first_air_date": "1975-01-17",
+        "vote_average": 6.4,
+        "vote_count": 38,
+        "origin_country": [
+          "US"
+        ]
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/w4HqCpNojW3kbgtj4qHCnf5G7bf.jpg",
+        "id": 213306,
+        "name": "Cross",
+        "original_name": "Cross",
+        "overview": "Alex Cross is a brilliant but flawed homicide detective and full of contradictions. A doting father and family man, Cross is single-minded to the point of obsession when he hunts killers. He is desperate for love, but his wife’s murder has left him too damaged to receive it.",
+        "poster_path": "/6hhKdavCEZi8d584ZtIrQIrBvZI.jpg",
+        "media_type": "tv",
+        "original_language": "en",
+        "genre_ids": [
+          80,
+          18,
+          9648
+        ],
+        "popularity": 27.6277,
+        "first_air_date": "2024-11-14",
+        "vote_average": 7.019,
+        "vote_count": 268,
+        "origin_country": [
+          "US"
+        ]
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/aP0V3qTB1iy3JW90EKVpLPNhMia.jpg",
+        "id": 122194,
+        "name": "CSI: Vegas",
+        "original_name": "CSI: Vegas",
+        "overview": "Facing an existential threat that could bring down the Crime Lab, a brilliant team of forensic investigators must welcome back old friends and deploy new techniques to preserve and serve justice in Sin City.",
+        "poster_path": "/8DtOnaOQPiptM9umpV0Xntwv9t3.jpg",
+        "media_type": "tv",
+        "original_language": "en",
+        "genre_ids": [
+          80,
+          18,
+          9648
+        ],
+        "popularity": 24.9682,
+        "first_air_date": "2021-10-06",
+        "vote_average": 7.8,
+        "vote_count": 305,
+        "origin_country": [
+          "US"
+        ]
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/9PARvL1FQtyjNhLF6AT6Oanqg1U.jpg",
+        "id": 80213,
+        "name": "The Purge",
+        "original_name": "The Purge",
+        "overview": "Set in a dystopian America ruled by a totalitarian political party, the series follows several seemingly unrelated characters living in a small city. Tying them all together is a mysterious savior who’s impeccably equipped for everything the night throws at them. As the clock winds down with their fates hanging in the balance, each character is forced to reckon with their pasts as they discover how far they will go to survive the night.",
+        "poster_path": "/9CaS2XFd0Db42grzzVBnWcSkrbg.jpg",
+        "media_type": "tv",
+        "original_language": "en",
+        "genre_ids": [
+          9648,
+          80,
+          18
+        ],
+        "popularity": 21.0011,
+        "first_air_date": "2018-09-04",
+        "vote_average": 6.9,
+        "vote_count": 3381,
+        "origin_country": [
+          "US"
+        ]
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/quVbFfkM3vV6FrbS7INnqNL9hRy.jpg",
+        "id": 130273,
+        "name": "Annika",
+        "original_name": "Annika",
+        "overview": "The sharp, witty and enigmatic DI Annika Strandhed, as she heads up a new specialist Marine Homicide Unit (MHU) that is tasked with investigating the unexplained, brutal, and seemingly unfathomable murders.",
+        "poster_path": "/8jRoGLyOnTMyLhWajG0ye6KKw0h.jpg",
+        "media_type": "tv",
+        "original_language": "en",
+        "genre_ids": [
+          9648,
+          80,
+          18
+        ],
+        "popularity": 9.0375,
+        "first_air_date": "2021-08-17",
+        "vote_average": 7.137,
+        "vote_count": 62,
+        "origin_country": [
+          "GB"
+        ]
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/gQr75UrfUsu799Xwzic1TYtZGTD.jpg",
+        "id": 11726,
+        "name": "Spiral",
+        "original_name": "Engrenages",
+        "overview": "This gritty crime drama set in the dark underbelly of Paris follows police officers and lawyers as they investigate and prosecute crimes. Throw any romantic notion of Paris out the window. Crime is dark. The legal system is darker. This is Spiral.",
+        "poster_path": "/t4i4wJCRUDkblYaqp3ln4vENQdC.jpg",
+        "media_type": "tv",
+        "original_language": "fr",
+        "genre_ids": [
+          10759,
+          80,
+          18,
+          9648
+        ],
+        "popularity": 10.7945,
+        "first_air_date": "2005-12-13",
+        "vote_average": 7.9,
+        "vote_count": 91,
+        "origin_country": [
+          "FR"
+        ]
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/rp0f5vHNiAbe5EEIaw7XhJHQ7og.jpg",
+        "id": 218351,
+        "name": "The Gold",
+        "original_name": "The Gold",
+        "overview": "On 26 November 1983, six armed men break into the Brink's-Mat security depot, stumbling across gold bullion worth £26m.",
+        "poster_path": "/9JY9Gza4HQhXjIPXg9uSy8FeiSM.jpg",
+        "media_type": "tv",
+        "original_language": "en",
+        "genre_ids": [
+          80,
+          18
+        ],
+        "popularity": 16.2836,
+        "first_air_date": "2023-02-12",
+        "vote_average": 7.3,
+        "vote_count": 66,
+        "origin_country": [
+          "GB"
+        ]
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/bWTk5MoSYmtr34EQWXsEAFBeNiS.jpg",
+        "id": 1167,
+        "name": "The Inspector Lynley Mysteries",
+        "original_name": "The Inspector Lynley Mysteries",
+        "overview": "DS Barbara Havers is assigned to work with the upper-crust DI Thomas Lynley to solve murders.",
+        "poster_path": "/d68bISjO6e6cOtgeygJO471FUIh.jpg",
+        "media_type": "tv",
+        "original_language": "en",
+        "genre_ids": [
+          80,
+          18
+        ],
+        "popularity": 15.3796,
+        "first_air_date": "2002-04-08",
+        "vote_average": 7.2,
+        "vote_count": 40,
+        "origin_country": [
+          "GB"
+        ]
+      }
+    ],
+    "total_pages": 42,
+    "total_results": 821
+  },
+  "alternative_titles": {
+    "results": [
+      {
+        "iso_3166_1": "CN",
+        "title": "绅士怪盗",
+        "type": ""
+      },
+      {
+        "iso_3166_1": "CN",
+        "title": "亚森·罗苹",
+        "type": ""
+      },
+      {
+        "iso_3166_1": "CN",
+        "title": "怪盗罗苹",
+        "type": ""
+      },
+      {
+        "iso_3166_1": "CN",
+        "title": "亚森·罗宾",
+        "type": ""
+      },
+      {
+        "iso_3166_1": "FR",
+        "title": "Arsène Lupin",
+        "type": "working title"
+      },
+      {
+        "iso_3166_1": "FR",
+        "title": "Lupin : dans l'ombre d'Arsène",
+        "type": "part 1"
+      },
+      {
+        "iso_3166_1": "IR",
+        "title": "لوپن",
+        "type": ""
+      },
+      {
+        "iso_3166_1": "UA",
+        "title": "Арсен Люпен",
+        "type": ""
+      }
+    ]
   }
 }

@@ -30,13 +30,9 @@ class TmdbAccountApi internal constructor(private val client: HttpClient) {
             else -> throw IllegalArgumentException("Only movies and shows are supported.")
         }
 
-    suspend fun getFavoriteMovies(accountId: Int): TmdbMoviePageResult =
-        client.get(pathAccount(accountId, "favorite", "movies").joinToString(separator = "/"))
-            .body()
+    suspend fun getFavoriteMovies(accountId: Int): TmdbMoviePageResult = client.get(pathAccount(accountId, "favorite", "movies").joinToString(separator = "/")).body()
 
-    suspend fun getFavoriteShows(accountId: Int): TmdbMoviePageResult =
-        client.get(pathAccount(accountId, "favorite", "tv").joinToString(separator = "/"))
-            .body()
+    suspend fun getFavoriteShows(accountId: Int): TmdbMoviePageResult = client.get(pathAccount(accountId, "favorite", "tv").joinToString(separator = "/")).body()
 
     /**
      * POST /account/{account_id}/favorite

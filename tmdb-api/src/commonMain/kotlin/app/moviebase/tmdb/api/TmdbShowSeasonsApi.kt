@@ -4,6 +4,7 @@ import app.moviebase.tmdb.model.*
 import app.moviebase.tmdb.core.endPointV3
 import app.moviebase.tmdb.core.parameterAppendResponses
 import app.moviebase.tmdb.core.parameterIncludeImageLanguage
+import app.moviebase.tmdb.core.parameterIncludeVideoLanguage
 import app.moviebase.tmdb.core.parameterLanguage
 import io.ktor.client.*
 import io.ktor.client.call.*
@@ -16,12 +17,14 @@ class TmdbShowSeasonsApi(private val client: HttpClient) {
         seasonNumber: Int,
         language: String? = null,
         appendResponses: Iterable<AppendResponse>? = null,
-        includeImageLanguages: String? = null
+        includeImageLanguages: String? = null,
+        includeVideoLanguages: String? = null,
     ): TmdbSeasonDetail = client.get {
         endPointSeason(showId, seasonNumber)
         parameterLanguage(language)
         parameterAppendResponses(appendResponses)
         parameterIncludeImageLanguage(includeImageLanguages)
+        parameterIncludeVideoLanguage(includeVideoLanguages)
     }.body()
 
     suspend fun getVideos(showId: Int, seasonNumber: Int, language: String? = null): TmdbResult<TmdbVideo> = client.get {
@@ -29,7 +32,7 @@ class TmdbShowSeasonsApi(private val client: HttpClient) {
         parameterLanguage(language)
     }.body()
 
-    suspend fun getTranslations(showId: Int, seasonNumber: Int): TmdbTranslations = client.get {
+    suspend fun getTranslations(showId: Int, seasonNumber: Int): TmdbSeasonTranslations = client.get {
         endPointSeason(showId, seasonNumber, "translations")
     }.body()
 

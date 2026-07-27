@@ -13,7 +13,7 @@ class TmdbClientConfig {
     var tmdbApiKey: String? = null
     internal var tmdbAuthCredentials: TmdbAuthCredentials? = null
 
-    var expectSuccess: Boolean = true
+    var expectSuccess: Boolean = false
     var useCache: Boolean = true
     var useTimeout: Boolean = true
     var maxRequestRetries: Int? = 5

@@ -2,6 +2,7 @@ package app.moviebase.tmdb.model
 
 import app.moviebase.tmdb.image.TmdbImage
 import app.moviebase.tmdb.core.LocalDateSerializer
+import app.moviebase.tmdb.core.TmdbInstantSerializer
 import kotlin.time.Instant
 import kotlinx.datetime.LocalDate
 import kotlinx.serialization.SerialName
@@ -70,7 +71,7 @@ data class TmdbMovie(
     @SerialName("id") override val id: Int,
     @SerialName("original_title") val originalTitle: String,
     @SerialName("original_language") override val originalLanguage: String,
-    @SerialName("title") val title: String,
+    @SerialName("title") val title: String? = null,
     @SerialName("backdrop_path") override val backdropPath: String?,
     @SerialName("popularity") override val popularity: Float = 0f,
     @SerialName("vote_count") override val voteCount: Int = 0,
@@ -89,38 +90,43 @@ data class TmdbMoviePageResult(
 
 @Serializable
 data class TmdbMovieDetail(
-    @SerialName("adult") val adult: Boolean,
-    @SerialName("backdrop_path") val backdropPath: String?,
-    @SerialName("budget") val budget: Long,
-    @SerialName("genres") val genres: List<TmdbGenre>,
+    @SerialName("adult") val adult: Boolean = false,
+    @SerialName("backdrop_path") val backdropPath: String? = null,
+    @SerialName("budget") val budget: Long = 0,
+    @SerialName("genres") val genres: List<TmdbGenre> = emptyList(),
     @SerialName("homepage") val homepage: String? = null,
-    @SerialName("id")val id: Int,
+    @SerialName("id") val id: Int = 0,
     @SerialName("imdb_id") val imdbId: String? = null,
     @SerialName("origin_country") val originCountry: List<String> = emptyList(),
-    @SerialName("title") val title: String,
+    @SerialName("title") val title: String? = null,
     @SerialName("runtime") val runtime: Int? = null,
-    @SerialName("original_title") val originalTitle: String,
-    @SerialName("original_language") val originalLanguage: String,
-    @SerialName("overview") val overview: String,
-    @SerialName("poster_path") val posterPath: String?,
-    @SerialName("vote_average") override val voteAverage: Float,
-    @SerialName("vote_count") override val voteCount: Int,
+    @SerialName("original_title") val originalTitle: String? = null,
+    @SerialName("original_language") val originalLanguage: String? = null,
+    @SerialName("overview") val overview: String? = null,
+    @SerialName("poster_path") val posterPath: String? = null,
+    @SerialName("vote_average") override val voteAverage: Float = 0f,
+    @SerialName("vote_count") override val voteCount: Int = 0,
     @SerialName("external_ids") val externalIds: TmdbExternalIds? = null,
-    @SerialName("status") val status: TmdbMovieStatus,
-    @SerialName("tagline") val tagline: String,
-    @SerialName("video") val video: Boolean,
-    @SerialName("popularity") val popularity: Float,
+    @SerialName("status") val status: TmdbMovieStatus? = null,
+    @SerialName("tagline") val tagline: String? = null,
+    @SerialName("video") val video: Boolean = false,
+    @SerialName("popularity") val popularity: Float = 0f,
     @SerialName("release_date")
-    @Serializable(LocalDateSerializer::class)
-    val releaseDate: LocalDate?,
-    @SerialName("revenue") val revenue: Long,
+    @Serializable(LocalDateSerializer::class) val releaseDate: LocalDate? = null,
+    @SerialName("revenue") val revenue: Long = 0,
     @SerialName("release_dates") val releaseDates: TmdbResult<TmdbReleaseDates>? = null,
     @SerialName("production_companies") val productionCompanies: List<TmdbCompany>? = null,
     @SerialName("production_countries") val productionCountries: List<TmdbCountry>? = null,
     @SerialName("watch/providers") val watchProviders: TmdbWatchProviderResult? = null,
     @SerialName("credits") val credits: TmdbCredits? = null,
     @SerialName("videos") val videos: TmdbResult<TmdbVideo>? = null,
-    @SerialName("images") val images: TmdbImages? = null
+    @SerialName("reviews") val reviews: TmdbResult<TmdbReview>? = null,
+    @SerialName("images") val images: TmdbImages? = null,
+    @SerialName("translations") val translations: TmdbMovieTranslations? = null,
+    @SerialName("keywords") val keywords: TmdbKeywords? = null,
+    @SerialName("recommendations") val recommendations: TmdbResult<TmdbMovie>? = null,
+    @SerialName("alternative_titles") val alternativeTitles: TmdbAlternativeTitlesResult? = null,
+    @SerialName("belongs_to_collection") val belongsToCollection: TmdbBelongsToCollection? = null,
 ) : TmdbRatingItem {
 
     val posterImage get(): TmdbImage? = TmdbImage.poster(posterPath)
@@ -148,7 +154,7 @@ data class TmdbReleaseDates(
 @Serializable
 data class TmdbReleaseDate(
     @SerialName("iso_639_1") val iso639: String? = null,
-    @SerialName("release_date") val releaseDate: Instant?,
+    @SerialName("release_date") @Serializable(TmdbInstantSerializer::class) val releaseDate: Instant?,
     @SerialName("certification") val certification: String? = null,
     @SerialName("type") val type: TmdbReleaseType
 )
@@ -164,20 +170,34 @@ data class TmdbBelongsToCollection(
     @SerialName("id") val id: Int,
     @SerialName("name") val name: String,
     @SerialName("backdrop_path") val backdropPath: String? = null,
-    @SerialName("parts") val parts: List<TmdbMovie>
+    @SerialName("parts") val parts: List<TmdbMovie> = emptyList()
 )
 
 @Serializable
-data class TmdbReview(
-    @SerialName("id") val id: String,
-    val author: String,
-    val content: String,
-    val url: String
+data class TmdbAlternativeTitlesResult(
+    @SerialName("titles") val titles: List<TmdbAlternativeTitle> = emptyList()
 )
 
 @Serializable
 data class TmdbAlternativeTitle(
     @SerialName("iso_3166_1") val iso3166: String,
-    @SerialName("title") val title: String,
+    @SerialName("title") val title: String? = null,
     @SerialName("type") val type: String? = null
+)
+
+@Serializable
+data class TmdbAlternativeTitles(
+    @SerialName("id") val id: Int,
+    @SerialName("titles") val titles: List<TmdbAlternativeTitle>,
+)
+
+typealias TmdbMovieTranslations = TmdbTranslations<TmdbMovieTranslationData>
+
+@Serializable
+data class TmdbMovieTranslationData(
+    val homepage: String,
+    val overview: String,
+    val runtime: Int,
+    val tagline: String,
+    val title: String,
 )

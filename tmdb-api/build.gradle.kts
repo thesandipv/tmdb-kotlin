@@ -33,6 +33,12 @@ kotlin {
         }
     }
 
+    sourceSets.all {
+        languageSettings.optIn("kotlin.time.ExperimentalTime")
+        languageSettings.optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
+        languageSettings.optIn("kotlinx.coroutines.FlowPreview")
+    }
+
     sourceSets {
         commonMain.dependencies {
             api(libs.kotlinx.coroutines.core)
@@ -43,6 +49,7 @@ kotlin {
             implementation(libs.ktor.logging)
             implementation(libs.ktor.serialization.json)
             implementation(libs.ktor.content.negotiation)
+            implementation(libs.ktor.encoding)
             implementation(libs.ktor.auth)
         }
 

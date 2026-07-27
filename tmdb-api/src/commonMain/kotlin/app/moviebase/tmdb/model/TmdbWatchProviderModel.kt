@@ -45,12 +45,12 @@ enum class TmdbWatchMonetizationType(val value: String) {
 @Serializable
 data class TmdbWatchProviderResult(
     val id: Int? = null,
-    val results: Map<String, TmdbProviders>
+    val results: Map<String, TmdbProviders> = emptyMap()
 )
 
 @Serializable
 data class TmdbProviders(
-    val link: String,
+    val link: String? = null,
     val flatrate: List<TmdbProvider> = emptyList(),
     val buy: List<TmdbProvider> = emptyList(),
     val rent: List<TmdbProvider> = emptyList(),
@@ -59,8 +59,8 @@ data class TmdbProviders(
 
 @Serializable
 data class TmdbProvider(
-    @SerialName("display_priority") val displayPriority: Int?,
-    @SerialName("logo_path") val logoPath: String,
-    @SerialName("provider_id") val providerId: Int,
-    @SerialName("provider_name") val providerName: String
+    @SerialName("display_priority") val displayPriority: Int? = null,
+    @SerialName("logo_path") val logoPath: String? = null,
+    @SerialName("provider_id") val providerId: Int? = null,
+    @SerialName("provider_name") val providerName: String? = null
 )

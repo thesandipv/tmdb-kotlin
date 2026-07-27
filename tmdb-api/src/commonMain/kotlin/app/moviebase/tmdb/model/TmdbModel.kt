@@ -26,7 +26,10 @@ enum class AppendResponse(val value: String) {
     CONTENT_RATING("content_ratings"),
     MOVIE_CREDITS("movie_credits"),
     TV_CREDITS("tv_credits"),
-    WATCH_PROVIDERS("watch/providers");
+    WATCH_PROVIDERS("watch/providers"),
+    KEYWORDS("keywords"),
+    RECOMMENDATIONS("recommendations"),
+    ALTERNATIVE_TITLES("alternative_titles");
 
     companion object {
         fun build(appendResponses: Iterable<AppendResponse>) = appendResponses.joinToString(",") { it.value }
@@ -84,17 +87,18 @@ data class TmdbStatusResult(
 )
 
 @Serializable
-data class TmdbTranslations(
-    val id: Int,
-    val translations: List<TmdbTranslation>
+data class TmdbTranslations<out DATA>(
+    val id: Int? = null,
+    val translations: List<TmdbTranslation<DATA>>
 )
 
 @Serializable
-data class TmdbTranslation(
+data class TmdbTranslation<out DATA>(
     @SerialName("iso_3166_1") val iso3166: String,
     @SerialName("iso_639_1") val iso639: String,
     val name: String,
-    @SerialName("english_name") val englishName: String
+    @SerialName("english_name") val englishName: String,
+    @SerialName("data") val data: DATA
 )
 
 @Serializable
@@ -146,7 +150,10 @@ enum class TmdbVideoType(val value: String) {
     OPENING_CREDITS("Opening Credits"),
 
     @SerialName("Behind the Scenes")
-    BEHIND_THE_SCENES("Behind the Scenes");
+    BEHIND_THE_SCENES("Behind the Scenes"),
+
+    @SerialName("Recap")
+    RECAP("Recap");
 }
 
 @Serializable
@@ -189,9 +196,9 @@ data class TmdbFileImage(
     @SerialName("height") val height: Int,
     @SerialName("width") val width: Int,
     @SerialName("iso_639_1") val iso639: String? = null,
-    @SerialName("vote_average") val voteAverage: Float? = null,
-    @SerialName("vote_count") val voteCount: Int? = null
-)
+    @SerialName("vote_average") override val voteAverage: Float? = null,
+    @SerialName("vote_count") override val voteCount: Int? = null
+) : TmdbRatingItem
 
 @Serializable
 data class TmdbLogoImage(

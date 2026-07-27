@@ -2,6 +2,8 @@ package app.moviebase.tmdb.api
 
 import app.moviebase.tmdb.core.mockHttpClient
 import app.moviebase.tmdb.model.AppendResponse
+import app.moviebase.tmdb.model.TmdbAlternativeTitle
+import app.moviebase.tmdb.model.TmdbKeyword
 import app.moviebase.tmdb.model.TmdbReleaseType
 import app.moviebase.tmdb.model.TmdbVideoType
 import app.moviebase.tmdb.model.getCertification
@@ -17,7 +19,7 @@ class TmdbMoviesApiTest {
     val client = mockHttpClient(
         version = 3,
         responses = mapOf(
-            "movie/10140?language=en-US&append_to_response=images,external_ids,videos,release_dates,credits,reviews,content_ratings,watch/providers"
+            "movie/10140?language=en-US&append_to_response=images,external_ids,videos,release_dates,credits,reviews,content_ratings,watch/providers,translations,keywords,recommendations,alternative_titles"
                 to "movie/movie_details_10140.json",
             "movie/10140/images?language=en"
                 to "movie/movie_images_10140.json",
@@ -57,7 +59,11 @@ class TmdbMoviesApiTest {
                 AppendResponse.CREDITS,
                 AppendResponse.REVIEWS,
                 AppendResponse.CONTENT_RATING,
-                AppendResponse.WATCH_PROVIDERS
+                AppendResponse.WATCH_PROVIDERS,
+                AppendResponse.TRANSLATIONS,
+                AppendResponse.KEYWORDS,
+                AppendResponse.RECOMMENDATIONS,
+                AppendResponse.ALTERNATIVE_TITLES
             )
         )
 
@@ -68,11 +74,31 @@ class TmdbMoviesApiTest {
         assertThat(movieDetails.voteAverage).isEqualTo(6.4f)
         assertThat(movieDetails.voteCount).isEqualTo(4534)
         assertThat(movieDetails.overview).isEqualTo("This time around Edmund and Lucy Pevensie, along with their pesky cousin Eustace Scrubb find themselves swallowed into a painting and on to a fantastic Narnian ship headed for the very edges of the world.")
+        assertThat(movieDetails.translations).isNotNull()
 
         val tmdbVideo = movieDetails.videos?.results?.first()
         assertThat(tmdbVideo).isNotNull()
         assertThat(tmdbVideo?.id).isEqualTo("54b36eb9c3a3680939006425")
         assertThat(tmdbVideo?.type).isEqualTo(TmdbVideoType.TRAILER)
+
+        val spanishTranslation = movieDetails.translations!!.translations.first { it.iso639 == "es" }
+        assertThat(spanishTranslation).isNotNull()
+        assertThat(spanishTranslation.data.title).isEqualTo("Las crónicas de Narnia: La travesía del viajero del alba")
+        assertThat(spanishTranslation.data.tagline).isEqualTo("Emprende el viaje. Vive la aventura. Descubre Narnia como nunca antes la habías visto.")
+        assertThat(spanishTranslation.data.runtime).isEqualTo(113)
+
+        val keywords = movieDetails.keywords!!.keywords
+        assertThat(keywords).hasSize(19)
+        assertThat(keywords.first()).isEqualTo(TmdbKeyword(818, "based on novel or book"))
+        assertThat(keywords.last()).isEqualTo(TmdbKeyword(325762, "adoring"))
+
+        val recommendations = movieDetails.recommendations!!.results
+        assertThat(recommendations).hasSize(20)
+
+        val alternativeTitles = movieDetails.alternativeTitles!!.titles
+        assertThat(alternativeTitles).hasSize(19)
+        assertThat(alternativeTitles.first()).isEqualTo(TmdbAlternativeTitle("US", "The Chronicles of Narnia - The Voyage of the Dawn Treader - 3D", "3D version"))
+        assertThat(alternativeTitles.last()).isEqualTo(TmdbAlternativeTitle("RU", "Хроники Нарнии 3", ""))
     }
 
     @Test
