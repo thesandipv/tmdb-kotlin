@@ -79,19 +79,6 @@ class TmdbMoviesApi internal constructor(private val client: HttpClient) {
         parameterLanguage(language)
     }.body()
 
-    suspend fun nowPlaying(
-        page: Int,
-        language: String? = null,
-    ): TmdbMoviePageResult = client.get {
-        endPointV3("movie", "now_playing")
-        parameterPage(page)
-        parameterLanguage(language)
-    }.body()
-
-    private fun HttpRequestBuilder.endPointMovie(movieId: Int, vararg paths: String) {
-        endPointV3("movie", movieId.toString(), *paths)
-    }
-
     suspend fun getNowPlaying(
         page: Int = 1,
         language: String? = null,
@@ -224,12 +211,4 @@ class TmdbMoviesApi internal constructor(private val client: HttpClient) {
 
     private fun moviePath(movieId: Int, vararg paths: String) =
         arrayOf("movie", movieId.toString(), *paths)
-
-    suspend fun credits(
-        movieId: Int,
-        language: String? = null,
-    ): TmdbCredits = client.get {
-        endPointMovie(movieId, "credits")
-        parameterLanguage(language)
-    }.body()
 }
