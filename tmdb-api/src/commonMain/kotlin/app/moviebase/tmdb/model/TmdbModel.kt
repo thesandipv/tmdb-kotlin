@@ -1,5 +1,6 @@
 package app.moviebase.tmdb.model
 
+import app.moviebase.tmdb.TmdbPaging
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -40,7 +41,7 @@ enum class TmdbSortOrder(val value: String) {
     ASC("asc"), DESC("desc")
 }
 
-fun TmdbSortOrder?.getValueOrDefault() = this?.value ?: TmdbSortOrder.DESC?.value
+fun TmdbSortOrder?.getValueOrDefault(): String = this?.value ?: TmdbSortOrder.DESC.value
 
 /**
  * TMDB returns some errors like no resources, invalid API key, no token has been granted.
@@ -68,6 +69,14 @@ interface TmdbPageResult<T> {
     val totalResults: Int
     val totalPages: Int
 }
+
+/** Number of response pages that TMDB allows clients to request. */
+val TmdbPageResult<*>.accessibleTotalPages: Int
+    get() = TmdbPaging.accessibleTotalPages(totalPages)
+
+/** Next requestable page, or null when this is the last page exposed by TMDB. */
+val TmdbPageResult<*>.nextPage: Int?
+    get() = (page + 1).takeIf { page < accessibleTotalPages }
 
 @Serializable
 data class TmdbErrorResponse(

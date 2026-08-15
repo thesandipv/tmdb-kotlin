@@ -1,13 +1,12 @@
 package app.moviebase.tmdb
 
-import app.moviebase.tmdb.core.TmdbDsl
 import io.ktor.client.HttpClient
 import io.ktor.client.HttpClientConfig
+import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.engine.HttpClientEngineConfig
 import io.ktor.client.engine.HttpClientEngineFactory
 import io.ktor.client.plugins.logging.LoggingConfig
 
-@TmdbDsl
 class TmdbClientConfig {
 
     var tmdbApiKey: String? = null
@@ -50,6 +49,12 @@ class TmdbClientConfig {
         }
     }
 
+    fun httpClient(engine: HttpClientEngine, block: HttpClientConfig<*>.() -> Unit = {}) {
+        httpClientBuilder = {
+            HttpClient(engine, block)
+        }
+    }
+
     companion object {
 
         internal fun withKey(tmdbApiKey: String) = TmdbClientConfig().apply {
@@ -58,7 +63,6 @@ class TmdbClientConfig {
     }
 }
 
-@TmdbDsl
 class TmdbAuthCredentials {
 
     // used in version 4

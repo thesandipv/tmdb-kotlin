@@ -1,5 +1,6 @@
 package app.moviebase.tmdb.core
 
+import app.moviebase.tmdb.TmdbPaging
 import app.moviebase.tmdb.TmdbWebConfig
 import app.moviebase.tmdb.model.AppendResponse
 import io.ktor.client.request.HttpRequestBuilder
@@ -50,10 +51,17 @@ internal fun HttpRequestBuilder.parameterRegion(region: String?) {
 }
 
 internal fun HttpRequestBuilder.parameterPage(page: Int) {
-    require(page > 0) { "invalid page size: $page" }
+    require(page in TmdbPaging.FIRST_PAGE..TmdbPaging.MAX_PAGE) {
+        "invalid page: $page (expected ${TmdbPaging.FIRST_PAGE}..${TmdbPaging.MAX_PAGE})"
+    }
     parameter("page", page)
 }
 
-internal fun HttpRequestBuilder.parameterAppendResponses(appendResponses: Iterable<AppendResponse>?) {
-    appendResponses?.let { parameter("append_to_response", AppendResponse.build(it)) }
+internal fun HttpRequestBuilder.parameterAppendResponses(
+    appendResponses: Iterable<AppendResponse>?,
+    additional: List<String> = emptyList(),
+) {
+    val values = appendResponses?.map { it.value }.orEmpty() + additional
+    if (values.isEmpty()) return
+    parameter("append_to_response", values.joinToString(","))
 }
